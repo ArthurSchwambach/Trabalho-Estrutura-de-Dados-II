@@ -2,39 +2,49 @@
 #define ARVORE_H
 
 /*
-Aqui será criado uma árvore B -> Criar o o nó pai, o nó filho, a rai -> função de inserir, função de pesquisar
-Qual a ordem a ser colocada.
-
-/*
-Meta -> Criar a TAD arvore_b
-criar arvore.h e criar o arvore.c
-
-Trabalho fonte.txt -> Pegar os dados por linha do arquivo
-1 -> Cadastrar
-2 -> Pesquisar -------------------- Mat, Nome, Telefone
-3 -> Gravar índicce
-4 -> Sair
-
-
-Exemplo - indice.txt
-No_Pai
-Linha 1 Nó Nó Nó
-Linha 2 Nó Nó Nó
-
 */
+#define TAM 100
+
+typedef struct {
+    int mat;
+    char nome[TAM];
+    long int tel;
+} registro_st;
+
+typedef registro_st *registro;
+
+typedef struct {
+    registro registros;
+    int chave;
+} node_st;
+
+typedef struct {
+    int chaves;
+
+    
+}
+
+  typedef struct {
+ int quantidade;
+ int chave;
+int folha;
+int posicao;
+ *filho;
+} noBacana;
 
 
-// Criar inserir, buscar, eliminar e destruir a árvore
-typedef struct arvore
-{
 
-        
+struct tree_st {
+    node_st *nodes;
 };
 
-typedef struct no
-{
+registro 
+criar_registro();
 
-};
+void 
+apagar_registro(registro r);
+
+registro 
+pesquisar(int mat);
 
 #endif // ARVORE_H
-
