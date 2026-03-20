@@ -1,50 +1,25 @@
 #ifndef ARVORE_H
 #define ARVORE_H
 
-/*
-*/
-#define TAM 100
+#define TAM_NOME 100
 
 typedef struct {
     int mat;
-    char nome[TAM];
+    char nome[TAM_NOME];
     long int tel;
-} registro_st;
+} Registro;
 
-typedef registro_st *registro;
+typedef struct BTree BTree;
 
-typedef struct {
-    registro registros;
-    int chave;
-} node_st;
+BTree *btree_criar(void);
+void btree_destruir(BTree *arvore);
 
-typedef struct {
-    int chaves;
+int btree_inserir(BTree *arvore, int matricula, long int offset);
+int btree_buscar(const BTree *arvore, int matricula, long int *offset_encontrado);
 
-    
-}
-
-  typedef struct {
- int quantidade;
- int chave;
-int folha;
-int posicao;
- *filho;
-} noBacana;
-
-
-
-struct tree_st {
-    node_st *nodes;
-};
-
-registro 
-criar_registro();
-
-void 
-apagar_registro(registro r);
-
-registro 
-pesquisar(int mat);
+int carregar_arquivo_registros(const char *caminho_registros, BTree *arvore);
+int cadastrar_registro(const char *caminho_registros, BTree *arvore, const Registro *registro);
+int buscar_registro_por_matricula(const char *caminho_registros, const BTree *arvore, int matricula, Registro *registro_saida);
+int gravar_indice_arvore(const char *caminho_indice, const BTree *arvore);
 
 #endif // ARVORE_H
