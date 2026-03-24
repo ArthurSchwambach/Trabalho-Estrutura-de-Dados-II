@@ -11,15 +11,16 @@ typedef struct {
 
 typedef struct BTree BTree;
 
-BTree *btree_criar(void);
-void btree_destruir(BTree *arvore);
 
-int btree_inserir(BTree *arvore, int matricula, long int offset);
-int btree_buscar(const BTree *arvore, int matricula, long int *offset_encontrado);
+BTree *btree_criar(void);                                                         // PRONTA
+void btree_destruir(BTree *arvore);                                               // QUASE PRONTA (ainda não está libera toda a árvore)
 
-int carregar_arquivo_registros(const char *caminho_registros, BTree *arvore);
-int cadastrar_registro(const char *caminho_registros, BTree *arvore, const Registro *registro);
-int buscar_registro_por_matricula(const char *caminho_registros, const BTree *arvore, int matricula, Registro *registro_saida);
-int gravar_indice_arvore(const char *caminho_indice, const BTree *arvore);
+int btree_inserir(BTree *arvore, int matricula, long int offset);                 // QUASE PRONTA (sem split/inserção em nó não cheio)
+int btree_buscar(const BTree *arvore, int matricula, long int *offset_encontrado);// PRONTA
+
+int carregar_arquivo_registros(const char *caminho_registros, BTree *arvore);     // PRONTA
+int cadastrar_registro(const char *caminho_registros, BTree *arvore, const Registro *registro); // NÃO ESTÁ PRONTA
+int buscar_registro_por_matricula(const char *caminho_registros, const BTree *arvore, int matricula, Registro *registro_saida); // NÃO ESTÁ PRONTA
+int gravar_indice_arvore(const char *caminho_indice, const BTree *arvore);        // PRONTA
 
 #endif // ARVORE_H
